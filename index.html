@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: #f6f6f6;
+        }
+        .nav{
+            background-color: rgb(10, 10, 10);
+            padding-top: 0.4rem;
+            padding-bottom: 0.4rem;
+            color: white;
+            text-decoration-line: none;
+            text-decoration: none;
+        }
+        .nav h1{
+            padding-left: 1rem;
+            font-size: 3rem;
+            text-decoration: none;
+            color: white;
+        }
+        .nav a{
+            text-decoration: none;
+        }
+       .wrapp{
+        display: flex;
+        
+        
+       }
+
+
+       .srh{
+        background: #252525;
+       }
+       .container1 {
+	 position: relative;
+	 margin: auto;
+     padding: 1rem;
+	 top: 0;
+	 left: 0;
+	 right: 0;
+	 bottom: 0;
+	 width: 300px;
+	 height: 100px;
+}
+ .container1 .search {
+	 position: absolute;
+	 margin: auto;
+	 top: 0;
+	 right: 0;
+	 bottom: 0;
+	 left: 0;
+	 width: 80px;
+	 height: 80px;
+	 background: crimson;
+	 border-radius: 50%;
+	 transition: all 1s;
+	 z-index: 4;
+	 box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+}
+ .container1 .search:hover {
+	 cursor: pointer;
+}
+ .container1 .search::before {
+	 content: "";
+	 position: absolute;
+	 margin: auto;
+	 top: 22px;
+	 right: 0;
+	 bottom: 0;
+	 left: 22px;
+	 width: 12px;
+	 height: 2px;
+	 background: white;
+	 transform: rotate(45deg);
+	 transition: all 0.5s;
+}
+ .container1 .search::after {
+	 content: "";
+	 position: absolute;
+	 margin: auto;
+	 top: -5px;
+	 right: 0;
+	 bottom: 0;
+	 left: -5px;
+	 width: 25px;
+	 height: 25px;
+	 border-radius: 50%;
+	 border: 2px solid white;
+	 transition: all 0.5s;
+}
+ .container1 input {
+	 position: absolute;
+	 margin: auto;
+	 top: 0;
+	 right: 0;
+	 bottom: 0;
+	 left: 0;
+	 width: 50px;
+	 height: 50px;
+	 outline: none;
+	 border: none;
+	 background: crimson;
+	 color: white;
+	 text-shadow: 0 0 10px crimson;
+	 padding: 0 80px 0 20px;
+	 border-radius: 30px;
+	 box-shadow: 0 0 25px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+	 transition: all 1s;
+	 opacity: 0;
+	 z-index: 5;
+	 font-weight: bolder;
+	 letter-spacing: 0.1em;
+}
+ .container1 input:hover {
+	 cursor: pointer;
+}
+ .container1 input:focus {
+	 width: 300px;
+	 opacity: 1;
+	 cursor: text;
+}
+ .container1 input:focus ~ .search {
+	 right: -360px;
+	 background: #151515;
+	 z-index: 6;
+}
+ .container1 input:focus ~ .search::before {
+	 top: 0;
+	 left: 0;
+	 width: 25px;
+}
+ .container1 input:focus ~ .search::after {
+	 top: 0;
+	 left: 0;
+	 width: 25px;
+	 height: 2px;
+	 border: none;
+	 background: white;
+	 border-radius: 0%;
+	 transform: rotate(-45deg);
+}
+ .container1 input::placeholder {
+	 color: white;
+	 opacity: 0.5;
+	 font-weight: bolder;
+}
+
+.tit{
+    font-weight: 600;
+    font-size: 1.7rem;
+    background-color: #151515;
+    padding: 1.2rem;
+    color: white;
+    text-align: center;
+}
+.tit span{
+    color:#f21743;
+    
+}
+
+.wrapp{
+    margin-top: 6rem;
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+    margin-right: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+.forecast{
+    width: 18rem;
+    height: 10rem;
+}
+
+.card {
+
+  /* position: relative; */
+  width: 300px;
+  height: 200px;
+  background-color: rgb(25, 25, 25);
+  border-radius: 10px;
+  /* display: flex; */
+  /* align-items: center; */
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  /* box-shadow: 10 10 10 40px #ffffff80; */
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card img {
+  width: 6rem;
+  /* fill: #333; */
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgb(13, 13, 13);
+  
+}
+
+.card__content {
+  position: absolute;
+  margin-top: 1rem;
+  margin-left: 0.4rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgb(25, 25, 25);
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  font-size: 24px;
+  color: #eaeaea;
+  font-weight: 700;
+}
+
+.card:hover img {
+  scale: 0;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #ececec;
+  line-height: 1.4;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="/"><h1>Weather <span style="font-size: larger;color: #DC143C;">Z</span>en</h1></a>
+    </div>
+
+    <div class="srh">
+        <form method="POST">
+            <div class="container1">
+                <input type="text" name="city" placeholder="Enter a city name" required>
+                <div class="search"></div>
+            </div>
+        </form>
+    </div>
+
+
+    {% if not data %}
+        <div class="tit">
+            Try typing district names in above search bar !
+        </div>
+        <div class="tit" style="background-color: #DC143C;padding-top: 5rem;">
+            Suggestions :
+            <div style="display:flex ;font-size: 1rem;gap: 5rem;flex-wrap: wrap;align-items: center;justify-content: center;justify-items: center;margin-top: 4rem;padding-bottom: 20rem;">
+                <p>Coimbatore</p>
+            <p>Vellore</p>
+            <p>Karur</p>
+            <p>Thanjavur</p>
+            <p>and much more</p>
+            </div>
+            
+        </div>
+
+        <div style="height: 6.7rem;background-color: #151515;">
+
+        </div>
+    {% endif %}
+
+
+
+    {% if data %}
+        <div class="tit">
+            5days Weather forecast for <span>{{ city_name }}</span> district
+        </div>
+    {% endif %}
+
+    {% if data %}
+    <div class="wrapp">
+        
+        
+        {% for item in data %}
+        
+            <div class="card">
+                <div>
+                    <div style="margin-left: 1rem;margin-top: 1rem;font-size: 1rem;font-weight: 700;color: #e0e0e0;">{{ item.dt_txt[:10] }}</div>
+                    <img style="margin-left:6rem ;" src="https://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png" alt="">
+                    <br>
+                    <div style="margin-left: 6rem;margin-top: 0.5rem;font-size: 1.6rem;font-weight: 800;color: #e0e0e0;">{{ item.dt_txt[10:16] }} IST</div>
+
+                    
+                </div>
+            
+            <div class="card__content" style="color: #e0e0e0;">
+                <strong>Date:</strong> {{ item.dt_txt }}
+                <br>
+                <strong>Temperature:</strong> {{ item.main.temp }}°C
+                <br>
+                <strong>Humidity:</strong> {{ item.main.humidity }}%
+                <br>
+                <strong>Wind Speed:</strong> {{ item.wind.speed }} m/s
+                <br>
+                <strong>Condition:</strong> <span style="font-size: larger;color: #ff1f4c;font-weight: 700;">{{ item.weather[0].description }}</span>
+            </div>
+          </div>
+
+
+            
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    
+    
+     
+</body>
+</html>
